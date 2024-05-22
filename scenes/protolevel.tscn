@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://0odd3hue17av"]
+
+[ext_resource type="PackedScene" uid="uid://bc06l1udemwmw" path="res://scenes/player.tscn" id="1_4ujry"]
+[ext_resource type="PackedScene" uid="uid://chjtfha6fcbgy" path="res://scenes/car.tscn" id="2_a3tuq"]
+[ext_resource type="Texture2D" uid="uid://ch56458ldjv1" path="res://icon.svg" id="2_pqlom"]
+
+[node name="Protolevel" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2592.0
+offset_top = -2912.0
+offset_right = 2824.0
+offset_bottom = 3040.0
+texture = ExtResource("2_pqlom")
+
+[node name="Car" parent="." instance=ExtResource("2_a3tuq")]
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." instance=ExtResource("1_4ujry")]
+position = Vector2(286, 160)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
+zoom = Vector2(0.5, 0.5)

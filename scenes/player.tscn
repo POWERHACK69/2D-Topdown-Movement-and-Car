@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc06l1udemwmw"]
+
+[ext_resource type="Texture2D" uid="uid://d4lp0smd826tv" path="res://art/1 aim2.png" id="1_kbnj0"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_lentu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_alc8c"]
+radius = 35.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mabom"]
+radius = 38.0789
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_lentu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(23, 3)
+texture = ExtResource("1_kbnj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_alc8c")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mabom")
+disabled = true
+
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 0.4
+one_shot = true
